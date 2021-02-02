@@ -1,1 +1,8 @@
 node_modules
+build
+.git
+.github
+.firebase
+.firebaserc
+.eslintcache
+firebase.json
