@@ -1,14 +1,13 @@
-import './App.css';
-import Header from './components/header'
+import './App.css'
+import HeaderNavBar from './components/HeaderNavBar'
 
 function App() {
-  return (
-    <div className="App">
-      <Header />
-      <main>
-      </main>
-    </div>
-  );
+    return (
+        <div className="App">
+            <HeaderNavBar />
+            <main></main>
+        </div>
+    )
 }
 
-export default App;
+export default App

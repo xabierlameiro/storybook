@@ -9,4 +9,3 @@ build
 .eslintrc.json
 .prettierignore
 .prettierrc
-storybook-static
