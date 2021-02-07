@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Sriracha&display=swap');
+
+:root {
+    --nav-scroll-height: 70px;
+    --transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+    --box-shadow: rgba(2,12,27,0.7);
+    --white: hsl(0deg, 0%, 100%);
+    --text-color: hsl(222deg, 22%, 5%);
+}
+
+header > nav {
+    background-color: var(--white);
+    box-sizing: border-box;
+    padding: 0 20px;
+    z-index: 1;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr auto;
+    height: var(--nav-scroll-height);
+    transition: var(--transition);
+    box-shadow: 0 -4px 10px 0 var(--box-shadow);
+    grid-gap: 10px;
+
+    &[data-scroll-direction="down"] {
+        transform : translateY(calc(var(--nav-scroll-height) * -1));
+    }
+
+    @media only screen and (max-width: 600px) {
+        grid-template-columns: 1fr auto;
+    }
+    
+    .nav {
+        &__home {
+            font-family: 'Nanum Pen Script', cursive;
+            font-size: 35px;
+            line-height: 25px;
+            display: grid;
+            place-content: center;
+            justify-content: left;
+            a {
+                color: var(--text-color);
+            }
+        }
+        &__links {
+            font-family: 'Nanum Pen Script', cursive;
+            font-size: 18px;
+            // font-family: 'Sriracha', cursive;
+            display: grid;
+            align-items: center;
+            @media only screen and (max-width: 600px) {
+                display: none;
+            }
+            li:hover {
+                text-decoration: underline;
+            }
+        }
+        &__controls {
+            display: grid;
+            align-items: center;
+            @media only screen and (max-width: 600px) {
+                display: none;
+            }
+        }
+        &__mobile-menu {
+            display: none;
+            @media only screen and (max-width: 600px) {
+                display: grid;
+            }
+            button {
+                border: 0;
+                padding: 0;
+                outline: none;
+                cursor: pointer;
+                background: transparent;
+                display: grid;
+                place-content: center;
+            }
+            aside {
+                display: grid;
+                box-sizing: border-box;
+                padding: 20px 10px;
+                transform: translateY(100vh);
+                transition: var(--transition);
+                background-color: var(--white);
+                position: fixed;
+                visibility: hidden;
+                width: 100vw;
+                height: calc(100vh - var(--nav-scroll-height));
+                top: var(--nav-scroll-height);
+                bottom: 0;
+                right: 0;
+                outline: 0;
+
+                &[data-open="true"] {
+                    transform: translateY(0vw);
+                    visibility: visible;
+                }
+                ul {
+                    justify-content: center;
+                    grid-auto-flow: row;
+                    text-align: center;
+                    margin: 0;
+                    padding: 10px 0;
+                }
+            }
+        }
+    }
+
+    ul {
+        list-style: none;
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap: 10px;
+        line-height: 1;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    a {
+        text-decoration: none;
+        display: flex;
+        color: var(--text-color);
+        transition: transform .7s ease;
+        justify-content: center;
+    }
+
+    div {
+        display: flex;
+        span {
+            cursor: pointer;
+        }
+    }
+
+}
+
+.icon {
+    width: 29px;
+    height: 29px;
+    stroke: var(--text-color);
+    transition: transform 1s ease;
+    cursor: pointer;
+}
+.icon:hover {
+    transform: translateY(2px) rotate(180deg) scale(1.2);
+}
+
+.icon path {
+    stroke-width: 40;
+    stroke: var(--text-color);
+    stroke-dasharray: 3000;
+    stroke-dashoffset: 0;
+    animation: stroke .45s ease forwards;
+    fill: yellow;
+}
+
+.icon circle {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+    animation: stroke2 1.5s ease forwards;
+}
+
+.icon.moon path{
+    stroke-width: 25;
+    animation: stroke 1s ease forwards;
+    fill: aqua;
+
+}
+.icon.heart path {
+    fill: red;
+}
+.icon.sun {
+    stroke-width: 1.2;
+    fill: yellow;
+}
+
+.icon.fill path {
+    animation: fill 1s ease forwards;
+}
+
+.icon line {
+    stroke-dasharray: 5;
+    stroke-dashoffset: 0;
+    animation: stroke3 .75s ease forwards;
+
+}
+
+@keyframes stroke {
+    from {
+        stroke-dashoffset: 3000;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes stroke2 {
+    from {
+        stroke-dashoffset: 100;
+    }
+}
+@keyframes stroke3 {
+    from {
+        stroke-dashoffset: 5;
+    }
+}
+
+@keyframes fill {
+    0% {
+        stroke-dashoffset: 3000;
+    }
+    50% {
+        fill: transparent;
+    }
+    90% {
+        fill: transparent;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        fill: var(--text-color);
+    }
+}
+
+.menuIcon {
+    overflow: visible;
+    path {
+        &:first-child {
+            transform: translateY(-30px);
+            animation: menuIcon .2s ease forwards .3s;
+        }
+        &:nth-of-type(2) {
+            transform: translateX(100px);
+            animation: menuIcon2 .2s ease forwards .5s;
+        }
+
+        &:nth-of-type(3){
+            transform: translateX(100px);
+            animation: menuIcon2 .2s ease forwards .7s;
+        }
+    }
+}
+
+@keyframes menuIcon {
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes menuIcon2 {
+    to {
+        transform: translateX(0);
+    }
+}
+
+.close {
+    cursor: pointer;
+    transform: translateX(0) scale(1.4);
+    transition: transform .7s ease-out;
+    transition-delay: .1s;
+}
+.animation .close {
+    transform: translateX(calc(100vw - 55px)) scale(1.4) rotate(450deg);
+}
+.animation2 {
+    animation-name: a;
+    animation-duration: .6s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: both;
+}
+
+@keyframes a {
+    0% {
+        transform: tranlateY(0);
+    }
+    10% {
+        transform: translateY(-24px);
+    }
+    40% {
+        transform: translateY(-24px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.menuIcon2 {
+    font-family: 'Nanum Pen Script', cursive;
+    display: grid;
+    align-content: center;
+    grid-row-gap: 6px;
+    font-size: 35px;
+    transform: scaleX(2);
+
+    span {
+        line-height: 0;
+        &:first-child {
+            transform: translateY(-40px);
+            animation: menuIcon .2s ease forwards .3s;
+        }
+        &:nth-of-type(2) {
+            transform: translateX(100px);
+            animation: menuIcon2 .2s ease forwards .5s;
+        }
+
+        &:nth-of-type(3){
+            transform: translateX(100px);
+            animation: menuIcon2 .2s ease forwards .7s;
+        }
+    }
+}

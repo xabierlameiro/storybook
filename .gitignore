@@ -4,3 +4,9 @@ build
 .firebase
 .firebaserc
 .eslintcache
+.vscode
+.eslintignore
+.eslintrc.json
+.prettierignore
+.prettierrc
+storybook-static
