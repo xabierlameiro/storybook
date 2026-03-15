@@ -1,32 +1,49 @@
-## Aprendiendo StoryBook 
+# Storybook Component Library Demo
 
-_Bienvenido a mi proyecto de pruebas de StoryBook en el crearé componentes reutilizables para mi futuro Portfolio personal._
+A React application (CRA) showcasing a component library built with Storybook 6 and `@react-hook/media-query`.
 
-### Instalación 🔧
+[![CI](https://github.com/xabierlameiro/storybook/actions/workflows/ci.yml/badge.svg)](https://github.com/xabierlameiro/storybook/actions/workflows/ci.yml)
 
-_Estos son los pasos utilizados hasta el momento para instalar StoryBook._
+## Stack
 
+| Layer            | Choice                     |
+| ---------------- | -------------------------- |
+| Framework        | Create React App           |
+| Language         | TypeScript                 |
+| Component dev    | Storybook 6                |
+| Hooks            | @react-hook/media-query    |
+| Testing          | Jest + Testing Library     |
+| Package manager  | npm                        |
+
+## Getting started
+
+```bash
+git clone https://github.com/xabierlameiro/storybook.git
+cd storybook
+npm install
+npm start
 ```
-npx sb init
 
-yarn storybook
+Open [http://localhost:3000](http://localhost:3000).
 
+## Storybook
+
+```bash
+npm run storybook
 ```
 
-## Construido con 🛠️
+Open [http://localhost:6006](http://localhost:6006) to explore components.
 
-_Las siguientes herramientas :_
+## Scripts
 
-* [React](https://es.reactjs.org/) - React!!!! :)
-* [Firebase Hosting](https://firebase.google.com/docs/hosting) - Firebase Hosting/ Custom Domain
-* [StoryBook](https://storybook.js.org/) - StoryBook
-* [Sass](https://sass-lang.com/) - Estilos!
-* [Eslint](https://prettier.io/) - Corrector
-* [Prettier](https://eslint.org/) - Formateo (Standar config)
+| Script                   | Description                     |
+| ------------------------ | ------------------------------- |
+| `npm start`              | Start development server        |
+| `npm run build`          | Production build                |
+| `npm test`               | Jest tests (watch mode)         |
+| `npm run storybook`      | Start Storybook dev server      |
+| `npm run build-storybook`| Build Storybook static files    |
 
-## Producción 🚀
+## License
 
-* [Mi sitio web](https://storybook.xabierlameiro.com/)
-
----
-⌨️ con ❤️❤️❤️❤️❤️❤️ por xlameiro
+[MIT](./LICENSE) — © 2026 Xabier Lameiro
